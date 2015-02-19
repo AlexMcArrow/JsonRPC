@@ -171,6 +171,11 @@ class Server
         $response = array_merge($response, $data);
 
         @header('Content-Type: application/json');
+        @header('Cache-Control: no-cache');
+        @header('Connection: keep-alive');
+        @header('Access-Control-Allow-Origin: *');
+        @header('Access-Control-Allow-Credentials: true');
+        @header('Access-Control-Allow-Headers: X-Requested-With);
         return json_encode($response);
     }
 
